@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
+        <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+        <link rel="stylesheet" type="text/css" href="css/smac-certificates.css" media="all">
+        <style>
+            @page {
+                size: letter landscape;
+                margin:0mm; /*this removes the url and page numbers from the top and bottom margins */
+            }
+        </style>
+    </head>
+    <body class="certificates print">
+        <script>
+            const student_data = [
+                ['John Doe','yellow','July 25,2018'],
+                ['Jane Doe','green','July 25,2018'],
+                ['Kiko Garcia','red','July 25,2018'],
+                ['Bradley Gugel','black-1','July 25,2018'],
+                ['Nylah Tay','black-5','January 31, 2019'],
+                ['Nylah Tay','black-6','January 31, 2024']
+                
+            ];
+            
+            let certificatesHTML = document.getElementsByTagName("BODY")[0];
+            let innerHTMLcontent = "";
+            
+            i = 0;                
+            while (i < student_data.length){
+                let belt_rank = "";
+                switch (student_data[i][1]) {
+                    case "yellow":
+                        belt_rank = "8th Grade Yellow Belt";
+                    break;
+                    case "green":
+                        belt_rank = "6th Grade Green Belt";
+                    break;
+                    case "blue":
+                        belt_rank = "4th Grade Blue Belt";
+                    break;
+                    case "purple":
+                        belt_rank = "4th Grade Purple Belt";
+                    break;
+                    case "red":
+                         belt_rank = "2th Grade Red Belt";
+                    break;
+                    case "pink":
+                         belt_rank = "2th Grade Pink Belt";
+                    break;
+                    case "black-r":
+                         belt_rank = "Black Belt Ready";
+                    break;
+                    case "black-1":
+                         belt_rank = "1st Degree Black Belt";
+                    break;
+                    case "black-2":
+                         belt_rank = "2nd Degree Black Belt";
+                    break;
+                    case "black-3":
+                         belt_rank = "3rd Degree Black Belt";
+                    break;
+                    case "black-4":
+                         belt_rank = "4th Degree Black Belt";
+                    break;
+                    case "black-5":
+                         belt_rank = "5th Degree Black Belt";
+                    break;
+                    case "black-6":
+                         belt_rank = "6th Degree Black Belt";
+                    break;
+                }
+                innerHTMLcontent += `<article class="full-page page certificate rank-certificate tkd smac">
+            <div class="certificate-inside">
+                <div class="title"><h1>Certificate of Rank</h1></div>
+                <div class="intro"><p>This is to certify that</p></div>
+
+                <div class="name">${student_data[i][0]}</div>
+
+                <div class="promoted-to"><p>has been promoted to</p></div>
+                <div class="rank">${belt_rank}</span></div>
+                <div class="body"><p>in accordance with the qualifications set by Springfield Martial Arts Center and Majestic Martial Arts and Self Defense Association and approved by a board of qualified instructors and judges of Chang Hon TaeKwonDo on this day:</p></div>
+                <div class="date">${student_data[i][2]}</div>
+                <div class="stripe stripe1"></div>
+                <div class="stripe stripe2"></div>
+            </div>
+        </article>`;
+                i++;
+            }
+            certificatesHTML.innerHTML = innerHTMLcontent;
+        </script>
+        <header class="screenonly" style="display: none;">
+            <div>
+                <a class="button">Print</a>
+            </div>
+            <div><span>How to Print</span></div>
+        </header>
+    </body>
+</html>
